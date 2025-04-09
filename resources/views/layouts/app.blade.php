@@ -16,14 +16,22 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
+
 
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                        <div class="flex justify-between">
+                            <div class="shrink-0 flex items-center">
+                                <a href="{{ route('dashboard') }}" wire:navigate>
+                                    <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                </a>
+                            </div>
+                            {{ $header }}
+                        </div>
                     </div>
+                    <livewire:layout.navigation />
                 </header>
             @endif
 
