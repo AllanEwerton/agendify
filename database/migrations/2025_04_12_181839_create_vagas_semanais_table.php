@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profissionals', function (Blueprint $table) {
+        Schema::create('vagas_semanais', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('sobre_nome');
-            $table->string('email')->nullable()->unique();
-            $table->string('telefone');
-            $table->string('foto')->nullable();
+            $table->foreignId('profissional_id')->constrained('profissionals')->onDelete('cascade');
+            $table->enum('dia_semana', ['domingo','segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado']);
+            $table->integer('numero_vagas');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profissionals');
+        Schema::dropIfExists('vagas_semanais');
     }
 };

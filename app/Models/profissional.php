@@ -22,5 +22,15 @@ class profissional extends Model
     {
         return $this->nome . ' ' . $this->sobre_nome;
     }
+    public function agenda()
+    {
+        return $this->hasMany(Agendamento::class);
+    }
+
+    public function vagasSemanais()
+    {
+        return $this->hasMany(VagasSemanal::class);
+    }
+
 
 }
