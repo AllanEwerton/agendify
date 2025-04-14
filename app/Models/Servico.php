@@ -17,6 +17,7 @@ class Servico extends Model
     {
         return $this->hasMany(Agendamento::class);
     }
+    
     public function getFormattedPriceAttribute()
     {
         return number_format($this->preco, 2, ',', '.');
